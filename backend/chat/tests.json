@@ -1,0 +1,25 @@
+{
+  "tests": [
+    {
+      "name": "Get chat messages",
+      "method": "GET",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "messages": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Post message without auth",
+      "method": "POST",
+      "body": {
+        "message": "Hello world"
+      },
+      "expectedStatus": 401,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

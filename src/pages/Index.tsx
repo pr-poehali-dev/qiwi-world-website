@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import Chat from '@/components/Chat';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -87,7 +88,7 @@ const Index = () => {
               QIWI WORLD
             </h1>
             <div className="hidden md:flex gap-6">
-              {['home', 'donate', 'team', 'rules', 'gallery'].map((section) => (
+              {['home', 'chat', 'donate', 'team', 'rules', 'gallery'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -95,7 +96,8 @@ const Index = () => {
                     activeSection === section ? 'text-primary' : 'text-muted-foreground'
                   }`}
                 >
-                  {section === 'home' ? 'Главная' : 
+                  {section === 'home' ? 'Главная' :
+                   section === 'chat' ? 'Чат' :
                    section === 'donate' ? 'Донат' :
                    section === 'team' ? 'Команда' :
                    section === 'rules' ? 'Правила' : 'Галерея'}
@@ -147,7 +149,17 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="donate" className="py-20 px-4 bg-muted/50">
+      <section id="chat" className="py-20 px-4 bg-muted/50">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-4">ОБЩИЙ ЧАТ</h2>
+            <p className="text-xl text-muted-foreground">Общайтесь с игроками онлайн</p>
+          </div>
+          <Chat />
+        </div>
+      </section>
+
+      <section id="donate" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4">ДОНАТ ПРИВИЛЕГИИ</h2>

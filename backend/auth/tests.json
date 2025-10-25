@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "Successful user registration",
+      "method": "POST",
+      "body": {
+        "username": "Steve123"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "user_id": "number",
+        "username": "string",
+        "created_at": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Username too short",
+      "method": "POST",
+      "body": {
+        "username": "ab"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
